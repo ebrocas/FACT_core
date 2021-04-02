@@ -14,6 +14,10 @@ MONGO_MIRROR_COMMANDS = {
         'key': 'wget -qO - https://www.mongodb.org/static/pgp/server-3.6.asc | sudo apt-key add -',
         'sources': 'echo "deb http://repo.mongodb.org/apt/debian stretch/mongodb-org/3.6 main" | sudo tee /etc/apt/sources.list.d/mongo.list'
     },
+    'focal': {
+        'key': 'wget -qO - https://www.mongodb.org/static/pgp/server-4.4.asc | sudo apt-key add -',
+        'sources': 'echo "deb [ arch=amd64,arm64 ] https://repo.mongodb.org/apt/ubuntu focal/mongodb-org/4.4 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-4.4.list'
+    },
 }
 
 
@@ -38,7 +42,7 @@ def _add_mongo_mirror(distribution):
 def main(distribution):
     logging.info('Setting up mongo database')
 
-    if distribution == 'debian':
+    if distribution in ['debian', 'focal']:
         _add_mongo_mirror(distribution)
         apt_update_sources()
         apt_install_packages('mongodb-org')

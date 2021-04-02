@@ -44,7 +44,7 @@ INSTALL_CANDIDATES = ['frontend', 'db', 'backend']
 
 BIONIC_CODE_NAMES = ['bionic', 'tara', 'tessa', 'tina', 'disco']
 DEBIAN_CODE_NAMES = ['buster', 'stretch', 'kali-rolling']
-FOCAL_CODE_NAMES = ['focal', 'ulyana']
+FOCAL_CODE_NAMES = ['focal', 'ulyana', 'groovy']
 
 
 def _setup_argparser():
